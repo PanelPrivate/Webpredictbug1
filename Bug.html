@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTerClose Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .target-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .options-section {
+            margin-top: 20px;
+        }
+        .option-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>XTerClose</h1>
+        
+        <div class="target-section">
+            <h3>Nomor WhatsApp Target</h3>
+            <div class="input-group">
+                <input type="text" id="targetNumber" placeholder="08xxxxxxxxxx">
+            </div>
+            <div class="input-group">
+                <input type="text" id="virtexText" placeholder="Masukkan teks virtex">
+            </div>
+            <button onclick="sendVirtex()">Kirim Virtex</button>
+        </div>
+        
+        <div class="options-section">
+            <h3>ForceClose Invis</h3>
+            <div class="option-item">
+                <input type="checkbox" id="delayInvis">
+                <label for="delayInvis">Delay Invis</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="forceClose" checked>
+                <label for="forceClose">ForceClose Device</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="bugInvisible">
+                <label for="bugInvisible">Bug Invisible</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="delayBrutal">
+                <label for="delayBrutal">Delay Brutal</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="forceCloseUI">
+                <label for="forceCloseUI">Force Close UI</label>
+            </div>
+            <div class="option-item">
+                <label>Status: <span class="status">Aktif</span></label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendVirtex() {
+            const targetNumber = document.getElementById('targetNumber').value;
+            const virtexText = document.getElementById('virtexText').value;
+            
+            if (!targetNumber || !virtexText) {
+                alert('Harap isi nomor target dan teks virtex!');
+                return;
+            }
+            
+            // In a real application, this would connect to a backend service
+            // For demo purposes, we'll just show an alert
+            alert(`Virtex berhasil dikirim ke ${targetNumber}:\n\n${virtexText}`);
+            
+            // Reset the form
+            document.getElementById('targetNumber').value = '';
+            document.getElementById('virtexText').value = '';
+        }
+    </script>
+</body>
+</html>

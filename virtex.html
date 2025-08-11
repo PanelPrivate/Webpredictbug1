@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTerClose</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            padding: 25px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .divider {
+            border-top: 1px dashed #ccc;
+            margin: 15px 0;
+        }
+        .target-section {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        .options-section h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .checkbox-item input {
+            margin-right: 10px;
+            accent-color: #27ae60;
+        }
+        .status {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>XTerClose</h1>
+        
+        <!-- Nomor Target & Virtex Input -->
+        <div class="target-section">
+            <p><strong>Nomor WhatsApp Target</strong></p>
+            <div class="input-group">
+                <input type="text" id="targetNumber" placeholder="08xxxxxxxxxx">
+            </div>
+            <div class="input-group">
+                <input type="text" id="virtexText" placeholder="Masukkan teks virtex...">
+            </div>
+            <button onclick="sendVirtex()">Kirim Virtex</button>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- ForceClose Options -->
+        <div class="options-section">
+            <h3>ForceClose Invis</h3>
+            <div class="checkbox-item">
+                <input type="checkbox" id="delayInvis">
+                <label for="delayInvis">Delay Invis</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="forceClose" checked>
+                <label for="forceClose">ForceClose Device</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="bugInvisible">
+                <label for="bugInvisible">Bug Invisible</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="delayBrutal">
+                <label for="delayBrutal">Delay Brutal</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="forceCloseUI">
+                <label for="forceCloseUI">Force Close UI</label>
+            </div>
+            <p>Status: <span class="status">Aktif</span></p>
+        </div>
+    </div>
+
+    <script>
+        function sendVirtex() {
+            const targetNumber = document.getElementById('targetNumber').value;
+            const virtexText = document.getElementById('virtexText').value;
+            
+            if (!targetNumber || !virtexText) {
+                alert('Harap isi nomor target dan teks virtex!');
+                return;
+            }
+            
+            // Simulasi pengiriman virtex (real implementation requires backend)
+            alert(`🚀 Virtex Terkirim ke ${targetNumber}:\n\n"${virtexText}"`);
+            
+            // Reset form (opsional)
+            document.getElementById('targetNumber').value = '';
+            document.getElementById('virtexText').value = '';
+        }
+    </script>
+</body>
+</html>
